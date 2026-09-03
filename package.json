@@ -1,0 +1,47 @@
+{
+  "name": "claude-copilot-button",
+  "displayName": "Claude Copilot Button",
+  "description": "Add a Claude Copilot button next to the Claude Code button - routes Claude Code to GitHub Copilot models (gpt-5.6-sol) via a local copilot-api proxy",
+  "version": "1.0.0",
+  "publisher": "matt",
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "claudeCopilot.open",
+        "title": "Claude Copilot: Open in Terminal",
+        "icon": {
+          "light": "resources/teal-icon.svg",
+          "dark": "resources/teal-icon.svg"
+        }
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "claudeCopilot.open",
+          "group": "navigation@0"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "claudeCopilot.open",
+        "key": "ctrl+shift+alt+c",
+        "mac": "cmd+shift+alt+c"
+      }
+    ]
+  },
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false
+    }
+  }
+}
